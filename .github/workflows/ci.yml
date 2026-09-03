@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Lint, type check, and test once there is code to check.
+      # Rule files are validated against their schema so a malformed clinical
+      # rule cannot merge and silently change a published figure.
+      - name: Placeholder
+        run: echo "Checks land with the first app."

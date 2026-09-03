@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "IHMR Engine"
+message: "If you use this software or its results, please cite it as below."
+type: software
+abstract: >-
+  Simulations, models, clinical rules and tooling for the India Health Maintenance Rail
+  project. Exists to test the project's claims rather than assert them.
+authors:
+  - family-names: Sudarshan
+    given-names: Tejas Parthasarathi
+    website: "https://tejassuds.com"
+repository-code: "https://github.com/ihmrlabs/ihmr-engine"
+url: "https://projectihmr.com"
+license: Apache-2.0
+keywords:
+  - population health
+  - simulation
+  - health policy
+  - India
+  - preventive health

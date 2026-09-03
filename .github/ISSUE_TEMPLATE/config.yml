@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: The research repository
+    url: https://github.com/ihmrlabs/ihmr
+    about: Research, open questions, proposals and decisions live there.
+  - name: Open discussion
+    url: https://github.com/ihmrlabs/ihmr/discussions
+    about: For anything that does not fit neatly into an issue.
+  - name: Email us
+    url: mailto:hello@projectihmr.com
+    about: If GitHub is getting in the way, just write. We read everything.
