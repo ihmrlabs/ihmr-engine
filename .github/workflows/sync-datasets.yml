@@ -1,0 +1,128 @@
+name: Sync datasets to R2
+
+# Datasets are public content, which is exactly what the bucket holds. Syncing
+# them means the site resolves everything the same way, and a page render never
+# depends on the GitHub API being reachable or under its rate limit.
+#
+# The repository stays canonical. This is a mirror, not a move.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'datasets/**'
+      - 'visualizations/**'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-datasets
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+
+      # A dataset without provenance is not evidence, so it does not ship.
+      - name: Every dataset must have a SOURCE.md
+        run: |
+          python3 - <<'PY'
+          import pathlib, sys
+          missing = []
+          for d in sorted(p for p in pathlib.Path('datasets').iterdir() if p.is_dir()):
+              if not (d / 'SOURCE.md').exists():
+                  missing.append(d.name)
+          if missing:
+              print('Datasets with no SOURCE.md:')
+              for m in missing: print(' ', m)
+              sys.exit(1)
+          print('All datasets carry provenance.')
+          PY
+
+      - name: Warn about anything not yet verified by a person
+        run: |
+          python3 - <<'PY'
+          import pathlib, re
+          unverified = []
+          for d in sorted(p for p in pathlib.Path('datasets').iterdir() if p.is_dir()):
+              s = d / 'SOURCE.md'
+              if not s.exists(): continue
+              m = re.search(r'^Verified by:[ \t]*(.*)$', s.read_text(), re.M | re.I)
+              if not (m and m.group(1).strip()):
+                  unverified.append(d.name)
+          if unverified:
+              print(f'::warning::{len(unverified)} datasets have no named verifier.')
+              print('These sync, and the site labels them as unverified. Nothing should be')
+              print('cited from them until a person has read them against the original:')
+              for u in unverified: print(' ', u)
+          else:
+              print('Every dataset has a named verifier.')
+          PY
+
+      - name: Install rclone
+        run: curl -fsSL https://rclone.org/install.sh | sudo bash
+
+      - name: Configure R2
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        run: |
+          mkdir -p ~/.config/rclone
+          cat > ~/.config/rclone/rclone.conf <<EOF
+          [r2]
+          type = s3
+          provider = Cloudflare
+          access_key_id = ${R2_ACCESS_KEY_ID}
+          secret_access_key = ${R2_SECRET_ACCESS_KEY}
+          endpoint = https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com
+          acl = private
+          no_check_bucket = true
+          EOF
+
+      # copy, never sync: a dataset path that once resolved keeps resolving,
+      # because a published figure may cite it.
+      - name: Sync datasets and visualisations
+        run: |
+          rclone copy datasets r2:ihmr/datasets \
+            --checksum --transfers 16 --checkers 16 --stats-one-line
+          rclone copy visualizations r2:ihmr/visualizations \
+            --checksum --transfers 16 --stats-one-line
+
+      # An index, so the site can list datasets without walking the bucket
+      # or calling the GitHub API.
+      - name: Write the dataset index
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, re, datetime
+          out = []
+          for d in sorted(p for p in pathlib.Path('datasets').iterdir() if p.is_dir()):
+              s = d / 'SOURCE.md'
+              if not s.exists(): continue
+              t = s.read_text()
+              def field(label):
+                  m = re.search(rf'^{label}:[ \t]*(.*)$', t, re.M | re.I)
+                  return (m.group(1).strip() if m else '')
+              title = re.search(r'^#\s+(.+)$', t, re.M)
+              out.append({
+                  'id': d.name,
+                  'title': title.group(1).strip() if title else d.name,
+                  'publisher': field('Publisher'),
+                  'dataPeriod': field('Period covered'),
+                  'licence': field('Licence'),
+                  'verifiedBy': field('Verified by') or None,
+                  'hasCsv': (d / 'data.csv').exists(),
+              })
+          pathlib.Path('/tmp/index.json').write_text(json.dumps({
+              'generatedAt': datetime.datetime.now(datetime.UTC).isoformat(),
+              'commit': "${{ github.sha }}",
+              'count': len(out),
+              'datasets': out,
+          }, indent=2))
+          print(f'Indexed {len(out)} datasets')
+          PY
+          rclone copyto /tmp/index.json r2:ihmr/datasets/index.json
