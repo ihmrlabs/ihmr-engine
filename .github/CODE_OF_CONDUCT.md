@@ -26,12 +26,12 @@ person involved.
 ## Scope
 
 This applies to the repositories, discussions, issues, pull requests, comments on
-[projectihmr.com](https://projectihmr.com), and any space where someone is representing the
+[projectihmr.org](https://projectihmr.org), and any space where someone is representing the
 project.
 
 ## Reporting
 
-Email hello@projectihmr.com. Reports are read by the maintainer, kept confidential, and
+Email hello@projectihmr.org. Reports are read by the maintainer, kept confidential, and
 answered. If a report concerns the maintainer, please say so and we will find an independent
 route.
 

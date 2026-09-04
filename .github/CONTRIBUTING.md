@@ -37,4 +37,4 @@ These are tools for thinking carefully about a problem, and they can be wrong.
 ---
 
 Not sure where to start? Open an issue and say what you are curious about, or write to
-hello@projectihmr.com.
+hello@projectihmr.org.

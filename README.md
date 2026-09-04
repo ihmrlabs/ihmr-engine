@@ -103,6 +103,6 @@ Datasets keep their own licences, recorded per file.
 
 ---
 
-[projectihmr.com](https://projectihmr.com) · hello@projectihmr.com
+[projectihmr.org](https://projectihmr.org) · hello@projectihmr.org
 
 Maintained by [Tejas Parthasarathi Sudarshan](https://tejassuds.com)
