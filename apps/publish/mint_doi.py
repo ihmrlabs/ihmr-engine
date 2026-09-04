@@ -119,7 +119,12 @@ def main() -> int:
                 "title": f"{manifest['title']} (version {args.version})",
                 "description": manifest.get("summary", ""),
                 # Contributors are people. Never an AI tool.
-                "creators": [{"name": "Sudarshan, Tejas Parthasarathi"}],
+                # The ORCID turns a name into a resolvable identity, so a
+                # reference manager ingesting this attributes it correctly.
+                "creators": [{
+                    "name": "Sudarshan, Tejas Parthasarathi",
+                    "orcid": "0009-0008-6765-7281",
+                }],
                 "access_right": "open",
                 "license": "cc-by-4.0",
                 "keywords": ["India", "public health", "health policy", "population health"],

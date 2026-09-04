@@ -8,6 +8,7 @@ abstract: >-
 authors:
   - family-names: Sudarshan
     given-names: Tejas Parthasarathi
+    orcid: "https://orcid.org/0009-0008-6765-7281"
     website: "https://tejassuds.com"
 repository-code: "https://github.com/ihmrlabs/ihmr-engine"
 url: "https://projectihmr.org"
