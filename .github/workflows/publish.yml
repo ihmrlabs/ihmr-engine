@@ -40,6 +40,9 @@ jobs:
         env:
           ZENODO_API_TOKEN: ${{ secrets.ZENODO_API_TOKEN }}
           ZENODO_SANDBOX: ${{ inputs.sandbox && '1' || '0' }}
+          # Live deposits join the ihmr community. Sandbox has its own separate
+          # communities, so leave it unset there unless one has been created.
+          ZENODO_COMMUNITY: ${{ inputs.sandbox && '' || 'ihmr' }}
         run: |
           python3 apps/publish/mint_doi.py reserve \
             --work "corpus/research/${{ inputs.work }}" --version ${{ inputs.version }}

@@ -21,6 +21,14 @@ import urllib.request
 SANDBOX = os.environ.get("ZENODO_SANDBOX") == "1"
 BASE = "https://sandbox.zenodo.org/api" if SANDBOX else "https://zenodo.org/api"
 
+# Everything IHMR publishes goes into one community, so the outputs sit
+# together rather than scattered across Zenodo as unrelated records.
+#
+# The sandbox is a separate system: if you want to rehearse there, create a
+# community on sandbox.zenodo.org too and set ZENODO_COMMUNITY accordingly,
+# or leave it unset to deposit without one.
+COMMUNITY = os.environ.get("ZENODO_COMMUNITY", "" if SANDBOX else "ihmr")
+
 
 def api(method: str, path: str, body=None, token=None):
     url = f"{BASE}{path}"
@@ -116,11 +124,16 @@ def main() -> int:
                 "license": "cc-by-4.0",
                 "keywords": ["India", "public health", "health policy", "population health"],
                 "prereserve_doi": True,
+                **({"communities": [{"identifier": COMMUNITY}]} if COMMUNITY else {}),
             },
         }, token)
         doi = dep["metadata"]["prereserve_doi"]["doi"]
         state_file.write_text(json.dumps({"id": dep["id"], "bucket": dep["links"]["bucket"], "doi": doi}, indent=2))
         print(f"Reserved {doi}")
+        if COMMUNITY:
+            print(f"Submitted to community: {COMMUNITY}")
+            print("If you are not the community owner, it stays pending until a curator accepts.")
+            print("The DOI resolves either way; only the community listing waits.")
         print("Now write it into the Markdown front matter, then build the PDF, then publish.")
         return 0
 

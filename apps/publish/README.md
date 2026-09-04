@@ -33,6 +33,29 @@ way, every downloaded copy would be missing the one thing needed to cite it.
 | `pandoc` and `xelatex` | For the PDF. The workflow installs them |
 | `CORPUS_TOKEN` | So the workflow can open a pull request back against `ihmr` |
 
+## The community
+
+Everything IHMR publishes goes into the [`ihmr` community](https://zenodo.org/communities/ihmr),
+so the outputs sit together as a body of work rather than scattered across Zenodo as unrelated
+records. It also gives the project a single page anyone can follow or cite from.
+
+The script adds it automatically:
+
+```json
+"communities": [{ "identifier": "ihmr" }]
+```
+
+Two things to know.
+
+**As the community owner, your own deposits are accepted immediately.** If somebody else ever
+deposits into it, the record sits pending until a curator accepts. Either way the **DOI resolves
+straight away**; only the community listing waits.
+
+**The sandbox has its own separate communities.** A community on zenodo.org does not exist on
+sandbox.zenodo.org. The workflow therefore deposits without a community when running in sandbox,
+which is fine for rehearsing everything else. If you want to rehearse the community step too,
+create one there and set `ZENODO_COMMUNITY`.
+
 ## Use the sandbox first
 
 `sandbox.zenodo.org` until you are certain. **A published DOI cannot be deleted.**
