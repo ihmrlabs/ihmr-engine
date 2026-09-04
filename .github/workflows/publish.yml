@@ -1,0 +1,83 @@
+name: Publish a research version
+
+# Manual only. Publishing mints a DOI, and a published DOI cannot be deleted,
+# so this is never triggered by a push.
+
+on:
+  workflow_dispatch:
+    inputs:
+      work:
+        description: 'Work folder, e.g. IHMR-RSCH-001-state-of-indias-healthcare'
+        required: true
+      version:
+        description: 'Version number'
+        required: true
+      sandbox:
+        description: 'Use the Zenodo sandbox'
+        type: boolean
+        default: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: ihmrlabs/ihmr
+          path: corpus
+          token: ${{ secrets.CORPUS_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+
+      - name: Install pandoc and LaTeX
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends pandoc texlive-xetex texlive-fonts-recommended
+
+      - name: Reserve the DOI
+        env:
+          ZENODO_API_TOKEN: ${{ secrets.ZENODO_API_TOKEN }}
+          ZENODO_SANDBOX: ${{ inputs.sandbox && '1' || '0' }}
+        run: |
+          python3 apps/publish/mint_doi.py reserve \
+            --work "corpus/research/${{ inputs.work }}" --version ${{ inputs.version }}
+
+      - name: Write the DOI into front matter, then build the PDF
+        run: |
+          WORK="corpus/research/${{ inputs.work }}"
+          DOI=$(python3 -c "import json;print(json.load(open('$WORK/v${{ inputs.version }}/.zenodo.json'))['doi'])")
+          python3 - <<PY
+          import pathlib, json, re
+          work = pathlib.Path("$WORK")
+          m = json.loads((work / "manifest.json").read_text())
+          e = next(v for v in m["versions"] if v["version"] == ${{ inputs.version }})
+          p = work / "v${{ inputs.version }}" / e["document"]
+          t = p.read_text()
+          t = re.sub(r"^doi:.*$", "doi: $DOI", t, count=1, flags=re.M)
+          p.write_text(t)
+          PY
+          python3 apps/publish/build_pdf.py --work "$WORK" --version ${{ inputs.version }}
+
+      - name: Publish the deposition
+        env:
+          ZENODO_API_TOKEN: ${{ secrets.ZENODO_API_TOKEN }}
+          ZENODO_SANDBOX: ${{ inputs.sandbox && '1' || '0' }}
+        run: |
+          python3 apps/publish/mint_doi.py publish \
+            --work "corpus/research/${{ inputs.work }}" --version ${{ inputs.version }}
+
+      - name: Open a pull request against the corpus
+        run: |
+          cd corpus
+          git config user.name "stages"
+          git config user.email "stages@fanpit.live"
+          git checkout -b "publish/${{ inputs.work }}-v${{ inputs.version }}"
+          git add -A
+          git commit -m "Publish ${{ inputs.work }} v${{ inputs.version }}: DOI and PDF"
+          git push origin HEAD
+          gh pr create --title "Publish ${{ inputs.work }} v${{ inputs.version }}" \
+            --body "Minted the DOI, built the PDF, and recorded both. Review before merging."
+        env:
+          GH_TOKEN: ${{ secrets.CORPUS_TOKEN }}
