@@ -1,0 +1,31 @@
+{
+  "title": "Ayushman Arogya Mandir operationalisation against the 1.5 lakh target",
+  "unit": "",
+  "categories": [
+    "31 January 2025",
+    "15 July 2025",
+    "30 November 2025"
+  ],
+  "series": [
+    {
+      "label": "operational_AAMs",
+      "values": [
+        176325.0,
+        178154.0,
+        181873.0
+      ]
+    },
+    {
+      "label": "source",
+      "values": [
+        2100595.0,
+        2151239.0,
+        2025.0
+      ]
+    }
+  ],
+  "source": "PIB releases 2100595, 2151239 and MoHFW Initiatives & Achievements 2025",
+  "sourceUrl": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2151239",
+  "dataPeriod": "January 2025 - November 2025",
+  "note": ""
+}

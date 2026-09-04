@@ -1,0 +1,49 @@
+{
+  "title": "Community and frontline health workforce headcounts, most recent verified official figures",
+  "unit": "",
+  "categories": [
+    "ASHAs (rural + urban, in position under NHM)",
+    "ASHAs urban (in position under NUHM)",
+    "ANMs/HW(F) in position at rural SCs",
+    "ANMs/HW(F) in position at rural PHCs",
+    "ANMs in position urban (NUHM)",
+    "ANMs contractual supported by NHM",
+    "Community Health Officers at rural SCs",
+    "Anganwadi Workers",
+    "Anganwadi Helpers"
+  ],
+  "series": [
+    {
+      "label": "number",
+      "values": [
+        1029000.0,
+        93554.0,
+        186147.0,
+        27003.0,
+        27497.0,
+        90846.0,
+        118776.0,
+        1348135.0,
+        1023068.0
+      ]
+    },
+    {
+      "label": "as_of",
+      "values": [
+        302024.0,
+        302025.0,
+        312023.0,
+        312023.0,
+        302025.0,
+        302024.0,
+        312023.0,
+        312023.0,
+        312023.0
+      ]
+    }
+  ],
+  "source": "MoHFW Annual Report 2024-25; MoHFW Initiatives & Achievements 2025; HDI 2022-23; PIB/WCD Lok Sabha reply Feb 2024",
+  "sourceUrl": "https://www.mohfw-dohfw.gov.in/static/uploads/2025/09/45b06af4508a53a059c74efc930d955e.pdf",
+  "dataPeriod": "2023-2025 (see as_of column)",
+  "note": ""
+}

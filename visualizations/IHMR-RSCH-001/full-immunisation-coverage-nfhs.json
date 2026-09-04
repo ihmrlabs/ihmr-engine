@@ -1,0 +1,23 @@
+{
+  "title": "Fully immunised children 12-23 months (card-based series) across NFHS rounds",
+  "unit": "",
+  "categories": [
+    "NFHS-4",
+    "NFHS-5",
+    "NFHS-6"
+  ],
+  "series": [
+    {
+      "label": "fic_percent_card_based",
+      "values": [
+        77.9,
+        83.8,
+        87.1
+      ]
+    }
+  ],
+  "source": "NFHS-6 (2023-24) Key Findings note, Government of India",
+  "sourceUrl": "https://indiainatlanta.gov.in/public_files/assets/pdf/NFHS_6_Note_for_International_Media_13062026v2.pdf",
+  "dataPeriod": "2015-16 to 2023-24",
+  "note": ""
+}

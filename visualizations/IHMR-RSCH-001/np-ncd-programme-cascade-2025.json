@@ -1,0 +1,35 @@
+{
+  "title": "NP-NCD programme counts (National NCD portal) for screening, diagnosis and treatment, as stated in Parliament, August 2025. Programme MIS counts, not survey estimates.",
+  "unit": "",
+  "categories": [
+    "Hypertension",
+    "Diabetes"
+  ],
+  "series": [
+    {
+      "label": "screened_crore",
+      "values": [
+        38.9,
+        38.7
+      ]
+    },
+    {
+      "label": "diagnosed_crore",
+      "values": [
+        5.13,
+        3.45
+      ]
+    },
+    {
+      "label": "under_treatment_crore",
+      "values": [
+        4.74,
+        2.83
+      ]
+    }
+  ],
+  "source": "Rajya Sabha written reply, 5 Aug 2025 (MoS Health, citing National NCD portal), via IANS/Prokerala; PIB Release 2155451 (12 Aug 2025) for Jan-Jun 2025 figures",
+  "sourceUrl": "https://www.prokerala.com/news/articles/a1660790.html",
+  "dataPeriod": "cumulative to Aug 2025",
+  "note": ""
+}

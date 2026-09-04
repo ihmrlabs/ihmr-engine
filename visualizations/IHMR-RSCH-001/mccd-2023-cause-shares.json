@@ -1,0 +1,35 @@
+{
+  "title": "Share of medically certified deaths by major cause group, India 2023 (22.0% of registered deaths were medically certified)",
+  "unit": "",
+  "categories": [
+    "Diseases of circulatory system",
+    "Diseases of respiratory system",
+    "Certain infectious and parasitic diseases",
+    "Diseases of genitourinary system",
+    "Neoplasms (cancer)",
+    "Injury, poisoning and external causes",
+    "Diseases of digestive system",
+    "Conditions originating in perinatal period",
+    "Symptoms/signs not elsewhere classified"
+  ],
+  "series": [
+    {
+      "label": "share_of_medically_certified_deaths_pct",
+      "values": [
+        36.4,
+        11.5,
+        8.7,
+        4.9,
+        4.8,
+        4.3,
+        4.2,
+        4.1,
+        11.9
+      ]
+    }
+  ],
+  "source": "Report on Medical Certification of Cause of Death 2023, Office of the Registrar General, India",
+  "sourceUrl": "https://dc.crsorgi.gov.in/assets/download/Annual-Reports/mccd/2023.pdf",
+  "dataPeriod": "2023",
+  "note": ""
+}

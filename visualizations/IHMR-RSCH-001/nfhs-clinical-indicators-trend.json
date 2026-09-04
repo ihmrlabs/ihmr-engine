@@ -1,0 +1,34 @@
+{
+  "title": "NFHS-5 (2019-21) vs NFHS-6 (2023-24) measured blood sugar and blood pressure among adults age 15+, India totals",
+  "unit": "",
+  "categories": [
+    "Women 15+: blood sugar high/very high (>140 mg/dl) or on medication",
+    "Men 15+: blood sugar high/very high (>140 mg/dl) or on medication",
+    "Women 15+: elevated blood pressure or taking BP medicine",
+    "Men 15+: elevated blood pressure or taking BP medicine"
+  ],
+  "series": [
+    {
+      "label": "nfhs5_2019_21_pct",
+      "values": [
+        13.5,
+        15.6,
+        21.3,
+        24.0
+      ]
+    },
+    {
+      "label": "nfhs6_2023_24_pct",
+      "values": [
+        17.8,
+        20.9,
+        19.4,
+        22.1
+      ]
+    }
+  ],
+  "source": "NFHS-6 2023-24 India Fact Sheet, IIPS/MoHFW (May 2026), items 78-89",
+  "sourceUrl": "https://www.mohfw-dohfw.gov.in/static/uploads/2026/05/111ff4a13ca36b5cabb7f94aec5bb0ce.pdf",
+  "dataPeriod": "2019-21 and 2023-24",
+  "note": ""
+}

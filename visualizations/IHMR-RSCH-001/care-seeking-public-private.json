@@ -1,0 +1,31 @@
+{
+  "title": "Where people actually go for care: public vs private shares",
+  "unit": "",
+  "categories": [
+    "Hospitalisation cases in private hospitals (excl. childbirth)",
+    "Hospitalisation cases in government hospitals",
+    "Hospitalisation cases in charitable trust/NGO hospitals",
+    "Hospitalisation in public hospitals - rural",
+    "Hospitalisation in public hospitals - urban",
+    "Outpatient (OPD) cases in private hospitals/clinics",
+    "Households not generally using government health facilities"
+  ],
+  "series": [
+    {
+      "label": "value_pct",
+      "values": [
+        55.0,
+        42.0,
+        3.0,
+        46.0,
+        35.0,
+        66.0,
+        50.0
+      ]
+    }
+  ],
+  "source": "NSS 75th Round (2017-18) and NFHS-5 (2019-21), via PRS DFG 2025-26",
+  "sourceUrl": "https://prsindia.org/files/budget/budget_parliament/2025/DFG_Analysis_2025-26-Health.pdf",
+  "dataPeriod": "2017-18 (NSS); 2019-21 (NFHS-5)",
+  "note": ""
+}

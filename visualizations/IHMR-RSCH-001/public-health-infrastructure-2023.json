@@ -1,0 +1,62 @@
+{
+  "title": "Public health facilities in India by type and rural/urban location, as on 31 March 2023",
+  "unit": "",
+  "categories": [
+    "Sub-centres",
+    "Primary Health Centres",
+    "Community Health Centres",
+    "Sub-divisional/district-level hospitals (SDH)",
+    "District Hospitals",
+    "Medical Colleges"
+  ],
+  "series": [
+    {
+      "label": "total",
+      "values": [
+        169615.0,
+        31882.0,
+        6359.0,
+        1340.0,
+        714.0,
+        362.0
+      ]
+    },
+    {
+      "label": "rural",
+      "values": [
+        165639.0,
+        25354.0,
+        5491.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "urban",
+      "values": [
+        3976.0,
+        6528.0,
+        868.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "shortfall_vs_norm_pct_rural",
+      "values": [
+        22.0,
+        30.0,
+        36.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "source": "Health Dynamics of India (Infrastructure and Human Resources) 2022-23, MoHFW",
+  "sourceUrl": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2053070",
+  "dataPeriod": "as on 31 March 2023",
+  "note": ""
+}

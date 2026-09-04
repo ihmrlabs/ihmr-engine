@@ -1,0 +1,43 @@
+{
+  "title": "Cumulative transaction volumes of India's major public digital health platforms",
+  "unit": "",
+  "categories": [
+    "eSanjeevani",
+    "eSanjeevani",
+    "U-WIN",
+    "U-WIN",
+    "U-WIN",
+    "CoWIN",
+    "AAM/HWC network"
+  ],
+  "series": [
+    {
+      "label": "value",
+      "values": [
+        43.0,
+        46.7467,
+        17.39,
+        75.36,
+        3.2,
+        220.0,
+        500.0
+      ]
+    },
+    {
+      "label": "as_of",
+      "values": [
+        232025.0,
+        2026.0,
+        22026.0,
+        22026.0,
+        22026.0,
+        62023.0,
+        2026.0
+      ]
+    }
+  ],
+  "source": "GoI NFHS-6 media note June 2026; Rajya Sabha reply Nov 2025; Economic Survey 2022-23 (PIB)",
+  "sourceUrl": "https://indiainatlanta.gov.in/public_files/assets/pdf/NFHS_6_Note_for_International_Media_13062026v2.pdf",
+  "dataPeriod": "2021-2026 (as-of dates vary by row)",
+  "note": ""
+}

@@ -1,0 +1,29 @@
+{
+  "title": "Union Budget 2026-27 health allocations (Budget Estimates)",
+  "unit": "",
+  "categories": [
+    "Ministry of Health and Family Welfare (total)",
+    "National Health Mission",
+    "PM-JAY",
+    "PMSSY / AIIMS",
+    "PM-ABHIM",
+    "Department of Health Research"
+  ],
+  "series": [
+    {
+      "label": "allocation_rs_crore",
+      "values": [
+        106530.42,
+        39390.0,
+        9500.0,
+        11307.0,
+        4770.0,
+        4821.21
+      ]
+    }
+  ],
+  "source": "Union Budget 2026-27, MoHFW demands for grants (DD News / PIB PRID 2221616)",
+  "sourceUrl": "https://ddnews.gov.in/en/union-budget-2026-27-health-ministry-gets-%E2%82%B91-06-lakh-crore-allocation/",
+  "dataPeriod": "FY 2026-27 BE",
+  "note": ""
+}

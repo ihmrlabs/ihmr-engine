@@ -1,0 +1,82 @@
+{
+  "title": "Maternal mortality ratio for India and major states, SRS 2020-22 (with 95% CI)",
+  "unit": "",
+  "categories": [
+    "India",
+    "Kerala",
+    "Maharashtra",
+    "Tamil Nadu",
+    "Andhra Pradesh",
+    "Jharkhand",
+    "Telangana",
+    "Gujarat",
+    "Karnataka",
+    "Rajasthan",
+    "Haryana",
+    "Bihar",
+    "Punjab",
+    "Uttarakhand",
+    "West Bengal",
+    "Assam",
+    "Odisha",
+    "Chhattisgarh",
+    "Uttar Pradesh",
+    "Madhya Pradesh"
+  ],
+  "series": [
+    {
+      "label": "mmr_per_100000_live_births",
+      "values": [
+        88.0,
+        18.0,
+        36.0,
+        38.0,
+        47.0,
+        50.0,
+        50.0,
+        55.0,
+        58.0,
+        87.0,
+        89.0,
+        91.0,
+        92.0,
+        104.0,
+        105.0,
+        125.0,
+        136.0,
+        141.0,
+        141.0,
+        159.0
+      ]
+    },
+    {
+      "label": "ci_95",
+      "values": [
+        7593.0,
+        39.0,
+        1056.0,
+        958.0,
+        1173.0,
+        37157.0,
+        380.0,
+        2073.0,
+        1263.0,
+        37102.0,
+        34119.0,
+        51116.0,
+        45177.0,
+        43136.0,
+        65144.0,
+        49162.0,
+        114231.0,
+        46200.0,
+        116193.0,
+        98182.0
+      ]
+    }
+  ],
+  "source": "Special Bulletin on Maternal Mortality in India 2020-22, Table 1, ORGI",
+  "sourceUrl": "https://censusindia.gov.in/nada/index.php/catalog/45569/download/49766/SRS_MMR_Bulletin_2020_2022.pdf",
+  "dataPeriod": "2020-22",
+  "note": ""
+}

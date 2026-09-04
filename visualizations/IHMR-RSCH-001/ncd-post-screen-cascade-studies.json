@@ -1,0 +1,35 @@
+{
+  "title": "What happens after a positive NCD screen: published cascade measurements (no national figure exists)",
+  "unit": "",
+  "categories": [
+    "Screen-positives completing diagnostic confirmation",
+    "Confirmations sought at private facilities",
+    "Eligible 30+ population screened in one year",
+    "Detected diabetes cases referred to higher centre",
+    "Detected hypertension cases referred to higher centre",
+    "Diagnosed diabetes cases on treatment at 90 days",
+    "Diagnosed hypertension cases on treatment at 90 days",
+    "Persons on hypertension treatment nationally (75/25)",
+    "Persons on diabetes treatment nationally (75/25)"
+  ],
+  "series": [
+    {
+      "label": "value",
+      "values": [
+        6.4,
+        62.5,
+        48.0,
+        81.85,
+        84.24,
+        93.24,
+        92.43,
+        4.2,
+        2.53
+      ]
+    }
+  ],
+  "source": "Global Health Action 2018 (rural Andhra Pradesh); Journal of Family Medicine and Primary Care 2022 (rural Jaipur); MoHFW 75/25 Rajya Sabha reply 2025",
+  "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5769807",
+  "dataPeriod": "2015-16, 2019-20, 2025",
+  "note": ""
+}

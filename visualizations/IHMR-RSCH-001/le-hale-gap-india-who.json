@@ -1,0 +1,35 @@
+{
+  "title": "WHO life expectancy vs healthy life expectancy at birth, India, both sexes",
+  "unit": "",
+  "categories": [
+    "2019",
+    "2021"
+  ],
+  "series": [
+    {
+      "label": "life_expectancy_years",
+      "values": [
+        70.7,
+        67.3
+      ]
+    },
+    {
+      "label": "hale_years",
+      "values": [
+        60.9,
+        58.1
+      ]
+    },
+    {
+      "label": "gap_years",
+      "values": [
+        9.8,
+        9.2
+      ]
+    }
+  ],
+  "source": "WHO Global Health Observatory, indicators WHOSIS_000001 and WHOSIS_000002 (retrieved via GHO API)",
+  "sourceUrl": "https://data.who.int/countries/356",
+  "dataPeriod": "2019 and 2021",
+  "note": ""
+}

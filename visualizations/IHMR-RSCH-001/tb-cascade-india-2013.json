@@ -1,0 +1,40 @@
+{
+  "title": "TB cascade of care, India's public sector (RNTCP), 2013 \u2014 included as the benchmark cascade for another condition.",
+  "unit": "",
+  "categories": [
+    "Prevalent active TB",
+    "Evaluated at RNTCP facilities",
+    "Successfully diagnosed",
+    "Registered for treatment",
+    "Completed treatment",
+    "1-year recurrence-free survival"
+  ],
+  "series": [
+    {
+      "label": "people",
+      "values": [
+        2700000.0,
+        1938027.0,
+        1629906.0,
+        1417838.0,
+        1221764.0,
+        1049237.0
+      ]
+    },
+    {
+      "label": "percent_of_prevalent",
+      "values": [
+        100.0,
+        72.0,
+        60.0,
+        53.0,
+        45.0,
+        39.0
+      ]
+    }
+  ],
+  "source": "Subbaraman et al., PLoS Medicine 2016;13(10):e1002149",
+  "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/27780217/",
+  "dataPeriod": "2013",
+  "note": ""
+}

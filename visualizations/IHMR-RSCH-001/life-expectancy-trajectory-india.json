@@ -1,0 +1,35 @@
+{
+  "title": "Life expectancy at birth, India, selected SRS periods (total persons)",
+  "unit": "",
+  "categories": [
+    "1970-75",
+    "1981-85",
+    "1990-94",
+    "2000-04",
+    "2010-14",
+    "2014-18",
+    "2016-20",
+    "2017-21",
+    "2018-22"
+  ],
+  "series": [
+    {
+      "label": "life_expectancy_at_birth_years",
+      "values": [
+        49.7,
+        55.4,
+        60.0,
+        63.9,
+        67.9,
+        69.4,
+        70.0,
+        69.8,
+        69.9
+      ]
+    }
+  ],
+  "source": "SRS Based Abridged Life Tables 2018-22, Statement 1, ORGI",
+  "sourceUrl": "https://censusindia.gov.in/nada/index.php/catalog/45566/download/49763/SRS-Abridged_Life_Tables_2018-2022.pdf",
+  "dataPeriod": "1970-75 to 2018-22",
+  "note": ""
+}

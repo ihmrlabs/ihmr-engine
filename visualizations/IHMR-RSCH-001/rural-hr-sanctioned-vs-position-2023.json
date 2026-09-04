@@ -1,0 +1,119 @@
+{
+  "title": "Required, sanctioned, in-position and vacant posts for key cadres in rural public facilities, as on 31 March 2023 (all-India)",
+  "unit": "",
+  "categories": [
+    "HW(F)/ANM at sub-centres",
+    "Community Health Officers at sub-centres",
+    "HW(F)/ANM at PHCs",
+    "Doctors/Medical Officers at PHCs",
+    "Total specialists at CHCs",
+    "Surgeons at CHCs",
+    "Obstetricians & gynaecologists at CHCs",
+    "Physicians at CHCs",
+    "Paediatricians at CHCs"
+  ],
+  "series": [
+    {
+      "label": "required",
+      "values": [
+        165639.0,
+        157923.0,
+        25354.0,
+        25354.0,
+        21964.0,
+        5491.0,
+        5491.0,
+        5491.0,
+        5491.0
+      ]
+    },
+    {
+      "label": "sanctioned",
+      "values": [
+        227605.0,
+        146132.0,
+        33982.0,
+        41931.0,
+        13232.0,
+        3371.0,
+        3543.0,
+        3134.0,
+        3184.0
+      ]
+    },
+    {
+      "label": "in_position",
+      "values": [
+        186147.0,
+        118776.0,
+        27003.0,
+        32901.0,
+        4413.0,
+        913.0,
+        1442.0,
+        992.0,
+        1066.0
+      ]
+    },
+    {
+      "label": "vacant",
+      "values": [
+        42384.0,
+        28093.0,
+        7181.0,
+        9354.0,
+        8967.0,
+        2469.0,
+        2172.0,
+        2162.0,
+        2164.0
+      ]
+    },
+    {
+      "label": "vacant_pct_of_sanctioned",
+      "values": [
+        18.6,
+        19.2,
+        21.1,
+        22.3,
+        67.8,
+        73.2,
+        61.3,
+        69.0,
+        68.0
+      ]
+    },
+    {
+      "label": "shortfall_vs_required",
+      "values": [
+        11538.0,
+        39833.0,
+        5773.0,
+        976.0,
+        17551.0,
+        4578.0,
+        4087.0,
+        4499.0,
+        4425.0
+      ]
+    },
+    {
+      "label": "shortfall_pct_of_required",
+      "values": [
+        7.0,
+        25.2,
+        22.8,
+        3.8,
+        79.9,
+        83.4,
+        74.4,
+        81.9,
+        80.6
+      ]
+    }
+  ],
+  "source": "Health Dynamics of India 2022-23, Tables 12, 13, 14, 15, 20 (read from report PDF)",
+  "sourceUrl": "https://web.archive.org/web/20260221012414/https://mohfw.gov.in/sites/default/files/Health%20Dynamics%20of%20India%20%28Infrastructure%20%26%20Human%20Resources%29%202022-23_RE%20%281%29.pdf",
+  "dataPeriod": "as on 31 March 2023",
+  "note": ""
+}

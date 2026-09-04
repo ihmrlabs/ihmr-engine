@@ -1,0 +1,37 @@
+{
+  "title": "India TB indicators 2015 vs 2024, per WHO Global TB Report 2025 as released by PIB/MoHFW",
+  "unit": "",
+  "categories": [
+    "TB incidence (per lakh population)",
+    "TB mortality (per lakh population)",
+    "Treatment coverage (%)",
+    "Patients diagnosed/notified (lakh)",
+    "Estimated incident cases (lakh)"
+  ],
+  "series": [
+    {
+      "label": "2015",
+      "values": [
+        237.0,
+        28.0,
+        53.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "2024",
+      "values": [
+        187.0,
+        21.0,
+        92.0,
+        26.18,
+        27.0
+      ]
+    }
+  ],
+  "source": "PIB release PRID 2189415 (12 Nov 2025) citing WHO Global TB Report 2025",
+  "sourceUrl": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2189415",
+  "dataPeriod": "2015-2024",
+  "note": ""
+}

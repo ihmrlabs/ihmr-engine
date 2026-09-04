@@ -1,0 +1,31 @@
+{
+  "title": "Government Health Expenditure as % of GDP (2011-12 GDP series), India",
+  "unit": "",
+  "categories": [
+    "2013-14",
+    "2017-18",
+    "2018-19",
+    "2019-20",
+    "2020-21",
+    "2021-22",
+    "2022-23"
+  ],
+  "series": [
+    {
+      "label": "ghe_pct_of_gdp",
+      "values": [
+        1.15,
+        1.35,
+        1.28,
+        1.35,
+        1.6,
+        1.84,
+        1.43
+      ]
+    }
+  ],
+  "source": "National Health Accounts Estimates for India 2022-23, NHSRC/MoHFW (2013-14 point from PIB release ID 2265816)",
+  "sourceUrl": "https://nhsrcindia.org/sites/default/files/2026-05/NHA%202022-23%20Report.pdf",
+  "dataPeriod": "2013-14 to 2022-23",
+  "note": ""
+}

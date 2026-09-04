@@ -1,0 +1,29 @@
+{
+  "title": "ABDM stack: what has been created/registered versus what is actively used, as of the 3rd Mission Steering Group meeting",
+  "unit": "",
+  "categories": [
+    "ABHA numbers created",
+    "Digital health records linked to ABHA",
+    "Health facilities registered on HFR",
+    "Facilities actually using ABDM-enabled software",
+    "Healthcare professionals on HPR",
+    "Scan & Share OPD tokens generated (cumulative)"
+  ],
+  "series": [
+    {
+      "label": "value",
+      "values": [
+        93.95,
+        105.0,
+        5.33,
+        2.72,
+        9.85,
+        24.0
+      ]
+    }
+  ],
+  "source": "MoHFW, 3rd ABDM Mission Steering Group meeting readout (10 July 2026)",
+  "sourceUrl": "https://www.gktoday.in/ayushman-bharat-digital-mission-crosses-93-95-crore-health-accounts/",
+  "dataPeriod": "as of 10 July 2026",
+  "note": ""
+}

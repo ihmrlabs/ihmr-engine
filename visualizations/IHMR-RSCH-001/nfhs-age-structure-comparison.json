@@ -1,0 +1,34 @@
+{
+  "title": "Age structure and fertility of the surveyed household population, NFHS-5 vs NFHS-6 (all-India totals)",
+  "unit": "",
+  "categories": [
+    "Population below age 5 years (%)",
+    "Population below age 15 years (%)",
+    "Population age 60 years and above (%)",
+    "Total fertility rate (children per woman)"
+  ],
+  "series": [
+    {
+      "label": "nfhs5_2019_21",
+      "values": [
+        8.2,
+        26.5,
+        11.8,
+        2.0
+      ]
+    },
+    {
+      "label": "nfhs6_2023_24",
+      "values": [
+        8.0,
+        25.5,
+        12.9,
+        2.0
+      ]
+    }
+  ],
+  "source": "National Family Health Survey (NFHS-6) 2023-24 India Fact Sheet (provisional), MoHFW/IIPS, released May 2026",
+  "sourceUrl": "https://www.mohfw-dohfw.gov.in/static/uploads/2026/05/111ff4a13ca36b5cabb7f94aec5bb0ce.pdf",
+  "dataPeriod": "NFHS-5 fieldwork 2019-21; NFHS-6 fieldwork 2023-24",
+  "note": ""
+}

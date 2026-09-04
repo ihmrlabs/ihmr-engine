@@ -1,0 +1,74 @@
+{
+  "title": "India's health system at a glance",
+  "standfirst": "India can identify more than a billion people, insure the poorest 40% for hospitalisation, and screen at continental scale. It cannot tell you whether an abnormal result was ever followed up.",
+  "asOf": "September 2026",
+  "figures": [
+    {
+      "value": "8.5",
+      "unit": "%",
+      "label": "of adults with hypertension have it controlled",
+      "context": "Roughly one in twelve. More than 90% are undiagnosed, untreated, or treated without reaching control.",
+      "source": "NFHS-5 via JAMA Netw Open 2023",
+      "dataPeriod": "2019-21",
+      "emphasis": true
+    },
+    {
+      "value": "315",
+      "unit": "million",
+      "label": "adults live with hypertension",
+      "context": "About 63% of them do not know it.",
+      "source": "ICMR-INDIAB",
+      "dataPeriod": "fieldwork 2008-2020, projected to 2021"
+    },
+    {
+      "value": "101",
+      "unit": "million",
+      "label": "adults live with diabetes",
+      "context": "Awareness ranges from 46% to 74% depending on how it is measured.",
+      "source": "ICMR-INDIAB",
+      "dataPeriod": "projected to 2021"
+    },
+    {
+      "value": "0",
+      "unit": "",
+      "label": "national figures exist for referral completion after a positive screen",
+      "context": "Nothing in the published record answers it. The only measurements are two sub-district studies.",
+      "source": "Section 9",
+      "dataPeriod": "as of Sep 2026",
+      "emphasis": true
+    },
+    {
+      "value": "38.79",
+      "unit": "crore",
+      "label": "hypertension screening events recorded",
+      "context": "Events, not people. Repeat screens are counted each time, so unique individuals are unknown.",
+      "source": "National NCD portal, Rajya Sabha reply",
+      "dataPeriod": "cumulative to Oct 2025"
+    },
+    {
+      "value": "43.4",
+      "unit": "%",
+      "label": "of health spending is paid out of pocket",
+      "context": "PM-JAY covers hospitalisation. The outpatient care and medicines that chronic disease actually needs are not covered.",
+      "source": "National Health Accounts",
+      "dataPeriod": "2022-23"
+    },
+    {
+      "value": "~1.1",
+      "unit": "records",
+      "label": "per ABHA identity, on average",
+      "context": "94 crore identities exist; 105 crore health records are linked to them across all of time.",
+      "source": "ABDM dashboards",
+      "dataPeriod": "2026"
+    },
+    {
+      "value": "2011",
+      "unit": "",
+      "label": "the last time India counted its population",
+      "context": "Every denominator here rests on projections. The domestic and UN estimates differ by about 50 million people.",
+      "source": "Census; Technical Group projections",
+      "dataPeriod": "census 2011, projections 2020"
+    }
+  ],
+  "vintageNote": "This article is dated September 2026. Much of the data is not. The most recent national treatment-cascade measurements come from surveys fielded between 2017 and 2021, and there has been no census since 2011. Every figure above carries the period it actually describes."
+}

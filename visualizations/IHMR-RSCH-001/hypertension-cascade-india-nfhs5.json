@@ -1,0 +1,37 @@
+{
+  "title": "Hypertension care cascade, adults 18+, NFHS-5 (2019-21), with absolute numbers derived by applying cascade percentages to ICMR-INDIAB's 315 million adults 20+ with hypertension (2021). Derived cross-source figures are labelled.",
+  "unit": "",
+  "categories": [
+    "Have hypertension (prevalence 28.1% of adults 18+)",
+    "Ever diagnosed / aware",
+    "On treatment",
+    "Blood pressure controlled",
+    "Not controlled (undiagnosed + untreated + treated-uncontrolled)"
+  ],
+  "series": [
+    {
+      "label": "percent_conditional_on_previous_stage",
+      "values": [
+        0.0,
+        36.9,
+        44.7,
+        52.5,
+        0.0
+      ]
+    },
+    {
+      "label": "percent_of_all_with_hypertension",
+      "values": [
+        100.0,
+        36.9,
+        16.5,
+        8.7,
+        91.3
+      ]
+    }
+  ],
+  "source": "Percentages: Varghese et al., JAMA Network Open 2023 (NFHS-5). Population base: ICMR-INDIAB-17, Lancet Diabetes & Endocrinology 2023. Absolute numbers are author-derived, not published.",
+  "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10594142/",
+  "dataPeriod": "2019-21 (cascade); 2021 (population base)",
+  "note": ""
+}

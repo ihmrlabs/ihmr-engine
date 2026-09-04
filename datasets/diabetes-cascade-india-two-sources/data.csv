@@ -1,0 +1,5 @@
+"stage","NFHS5_percent (denominator noted)","NNMS_percent_of_all_with_diabetes","derived_people_millions_of_101M_base_NFHS5","derived_people_millions_of_101M_base_NNMS"
+"Have diabetes","100 (prevalence 6.5% of 18+)","100 (prevalence 9.3% of 18-69)","101 (published, ICMR-INDIAB)","101 (published, ICMR-INDIAB)"
+"Diagnosed / aware","74.2 (of all with diabetes)","45.8","75 (derived)","46 (derived)"
+"On treatment","59.4 (of diagnosed)","36.1","44 (derived)","36 (derived)"
+"Glucose controlled","65.5 (of diagnosed)","15.7","49 (derived; control among diagnosed)","16 (derived)"

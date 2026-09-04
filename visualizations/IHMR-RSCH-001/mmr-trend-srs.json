@@ -1,0 +1,31 @@
+{
+  "title": "India maternal mortality ratio (per 100,000 live births) by SRS three-year period, 2014-16 to 2020-22",
+  "unit": "",
+  "categories": [
+    "2014-16",
+    "2015-17",
+    "2016-18",
+    "2017-19",
+    "2018-20",
+    "2019-21",
+    "2020-22"
+  ],
+  "series": [
+    {
+      "label": "mmr_per_100000_live_births",
+      "values": [
+        130.0,
+        122.0,
+        113.0,
+        103.0,
+        97.0,
+        93.0,
+        88.0
+      ]
+    }
+  ],
+  "source": "Special Bulletin on Maternal Mortality in India 2020-22, SRS, Office of the Registrar General, India (June 2025)",
+  "sourceUrl": "https://censusindia.gov.in/nada/index.php/catalog/45569/download/49766/SRS_MMR_Bulletin_2020_2022.pdf",
+  "dataPeriod": "2014-16 to 2020-22",
+  "note": ""
+}

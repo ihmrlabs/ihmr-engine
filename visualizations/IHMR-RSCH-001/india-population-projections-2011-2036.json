@@ -1,0 +1,128 @@
+{
+  "title": "Official 2011 Census-based projections of India's total population, age structure, dependency ratios, median age and urban share, as on 1 March of each year",
+  "unit": "",
+  "categories": [
+    "2011",
+    "2016",
+    "2021",
+    "2026",
+    "2031",
+    "2036"
+  ],
+  "series": [
+    {
+      "label": "total_population_thousands",
+      "values": [
+        1210855.0,
+        1290235.0,
+        1361343.0,
+        1423435.0,
+        1475519.0,
+        1518288.0
+      ]
+    },
+    {
+      "label": "share_0_14_pct",
+      "values": [
+        30.9,
+        27.9,
+        25.5,
+        23.5,
+        21.7,
+        19.8
+      ]
+    },
+    {
+      "label": "share_15_59_pct",
+      "values": [
+        60.7,
+        62.9,
+        64.4,
+        65.0,
+        65.2,
+        65.1
+      ]
+    },
+    {
+      "label": "share_60plus_pct",
+      "values": [
+        8.4,
+        9.2,
+        10.1,
+        11.5,
+        13.1,
+        15.0
+      ]
+    },
+    {
+      "label": "population_60plus_thousands",
+      "values": [
+        101550.0,
+        118421.0,
+        137897.0,
+        163148.0,
+        193787.0,
+        228059.0
+      ]
+    },
+    {
+      "label": "median_age_years",
+      "values": [
+        24.9,
+        26.6,
+        28.4,
+        30.4,
+        32.5,
+        34.7
+      ]
+    },
+    {
+      "label": "total_dependency_per_1000",
+      "values": [
+        646.0,
+        590.0,
+        553.0,
+        538.0,
+        533.0,
+        536.0
+      ]
+    },
+    {
+      "label": "old_age_dependency_per_1000",
+      "values": [
+        138.0,
+        146.0,
+        157.0,
+        176.0,
+        201.0,
+        231.0
+      ]
+    },
+    {
+      "label": "young_dependency_per_1000",
+      "values": [
+        508.0,
+        444.0,
+        396.0,
+        362.0,
+        332.0,
+        305.0
+      ]
+    },
+    {
+      "label": "urban_share_pct",
+      "values": [
+        31.14,
+        32.84,
+        34.52,
+        36.19,
+        0.0,
+        38.6
+      ]
+    }
+  ],
+  "source": "Population Projections for India and States 2011-2036, Report of the Technical Group on Population Projections, National Commission on Population, MoHFW (July 2020)",
+  "sourceUrl": "https://nhm.gov.in/New_Updates_2018/Report_Population_Projection_2019.pdf",
+  "dataPeriod": "2011-2036 (projections; 2011 is the census count)",
+  "note": ""
+}

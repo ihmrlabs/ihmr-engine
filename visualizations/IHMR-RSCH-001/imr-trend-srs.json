@@ -1,0 +1,39 @@
+{
+  "title": "India infant mortality rate (per 1,000 live births), SRS annual estimates 2013-2023",
+  "unit": "",
+  "categories": [
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+  ],
+  "series": [
+    {
+      "label": "imr_per_1000_live_births",
+      "values": [
+        40.0,
+        39.0,
+        37.0,
+        34.0,
+        33.0,
+        32.0,
+        30.0,
+        28.0,
+        27.0,
+        26.0,
+        25.0
+      ]
+    }
+  ],
+  "source": "SRS Statistical Report 2023 (ORGI) for 2018-2023; PIB/MoHFW release PRID 1796436 (SRS bulletins) for 2015-2017 and 2019; Economic Survey 2025-26 Statistical Appendix Table 8.2 (citing SRS) for 2013; NHM Child Health page (SRS) for 2014",
+  "sourceUrl": "https://censusindia.gov.in/nada/index.php/catalog/46172/download/50420/SRS_STAT_2023.pdf",
+  "dataPeriod": "2013-2023",
+  "note": ""
+}

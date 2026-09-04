@@ -1,0 +1,27 @@
+{
+  "title": "NP-NCD cumulative screening events by condition at SHCs/PHCs including Ayushman Arogya Mandirs",
+  "unit": "",
+  "categories": [
+    "Hypertension",
+    "Diabetes",
+    "Oral cancer",
+    "Breast cancer",
+    "Cervical cancer"
+  ],
+  "series": [
+    {
+      "label": "screenings_crore",
+      "values": [
+        38.79,
+        36.05,
+        31.88,
+        14.98,
+        8.15
+      ]
+    }
+  ],
+  "source": "NP-NCD portal figures given in Rajya Sabha reply (reported by DD News)",
+  "sourceUrl": "https://ddnews.gov.in/en/india-operationalizes-1-8-lakh-ayushman-arogya-mandirs-over-130-crore-ncd-screenings-complete/",
+  "dataPeriod": "cumulative till 31 October 2025",
+  "note": ""
+}

@@ -1,0 +1,31 @@
+{
+  "title": "AB PM-JAY cumulative admissions authorised and value, official milestones",
+  "unit": "",
+  "categories": [
+    "2023-05-31",
+    "2025-03-01",
+    "2026-06-30"
+  ],
+  "series": [
+    {
+      "label": "admissions_crore",
+      "values": [
+        5.0,
+        8.9,
+        12.69
+      ]
+    },
+    {
+      "label": "value_rs_crore",
+      "values": [
+        61501.0,
+        126000.0,
+        192000.0
+      ]
+    }
+  ],
+  "source": "PIB PRID 1928582 (May 2023); Health Minister Lok Sabha statement via newsonair.gov.in (Mar 2025); Rajya Sabha reply via Morung Express (Aug 2026)",
+  "sourceUrl": "https://morungexpress.com/ab-pmjay-enables-1269-crore-cashless-hospital-admissions-worth-rs-192-lakh-crore-govt",
+  "dataPeriod": "2023 to mid-2026",
+  "note": ""
+}

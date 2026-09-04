@@ -1,0 +1,31 @@
+{
+  "title": "Registered health workforce and population ratios, latest official statements",
+  "unit": "",
+  "categories": [
+    "Registered allopathic doctors",
+    "Registered AYUSH practitioners",
+    "Doctor:population ratio (allopathic + AYUSH, 80% availability)",
+    "Doctor:population ratio (allopathic only)",
+    "Registered nursing personnel",
+    "Nurse:population ratio (80% active)",
+    "Nursing institutions (of which government)"
+  ],
+  "series": [
+    {
+      "label": "value",
+      "values": [
+        1388185.0,
+        751768.0,
+        1811.0,
+        11263.0,
+        3940000.0,
+        2.231,
+        5310806.0
+      ]
+    }
+  ],
+  "source": "PIB PRID 2225755 (Rajya Sabha reply, 10 Feb 2026); Economic Survey 2024-25 via PRS DFG 2026-27",
+  "sourceUrl": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2225755",
+  "dataPeriod": "2024 - February 2026",
+  "note": ""
+}

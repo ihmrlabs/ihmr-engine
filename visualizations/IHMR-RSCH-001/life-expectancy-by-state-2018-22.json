@@ -1,0 +1,63 @@
+{
+  "title": "Expectation of life at birth (total persons) for India and bigger states/UTs, SRS 2018-22",
+  "unit": "",
+  "categories": [
+    "India",
+    "Kerala",
+    "Delhi",
+    "Jammu & Kashmir",
+    "Himachal Pradesh",
+    "Tamil Nadu",
+    "Maharashtra",
+    "West Bengal",
+    "Punjab",
+    "Uttarakhand",
+    "Odisha",
+    "Andhra Pradesh",
+    "Telangana",
+    "Gujarat",
+    "Rajasthan",
+    "Karnataka",
+    "Jharkhand",
+    "Bihar",
+    "Haryana",
+    "Assam",
+    "Madhya Pradesh",
+    "Uttar Pradesh",
+    "Chhattisgarh"
+  ],
+  "series": [
+    {
+      "label": "life_expectancy_at_birth_years",
+      "values": [
+        69.9,
+        74.8,
+        74.6,
+        74.1,
+        73.6,
+        73.0,
+        72.5,
+        72.1,
+        70.8,
+        70.8,
+        70.4,
+        70.3,
+        70.3,
+        70.1,
+        69.9,
+        69.6,
+        69.4,
+        69.0,
+        68.6,
+        68.1,
+        67.4,
+        67.2,
+        64.4
+      ]
+    }
+  ],
+  "source": "SRS Based Abridged Life Tables 2018-22, ORGI",
+  "sourceUrl": "https://censusindia.gov.in/nada/index.php/catalog/45566/download/49763/SRS-Abridged_Life_Tables_2018-2022.pdf",
+  "dataPeriod": "2018-22",
+  "note": ""
+}

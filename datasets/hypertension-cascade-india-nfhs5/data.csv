@@ -1,0 +1,6 @@
+"stage","percent_conditional_on_previous_stage","percent_of_all_with_hypertension","derived_people_millions_of_315M_base"
+"Have hypertension (prevalence 28.1% of adults 18+)","-","100","315 (published, ICMR-INDIAB)"
+"Ever diagnosed / aware","36.9","36.9","116 (derived)"
+"On treatment","44.7","16.5 (derived)","52 (derived)"
+"Blood pressure controlled","52.5","8.7 (derived)","27 (derived)"
+"Not controlled (undiagnosed + untreated + treated-uncontrolled)","-","91.3 (derived)","288 (derived)"

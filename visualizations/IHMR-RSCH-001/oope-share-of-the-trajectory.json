@@ -1,0 +1,31 @@
+{
+  "title": "Out-of-pocket expenditure as a share of Total Health Expenditure, India",
+  "unit": "",
+  "categories": [
+    "2013-14",
+    "2017-18",
+    "2018-19",
+    "2019-20",
+    "2020-21",
+    "2021-22",
+    "2022-23"
+  ],
+  "series": [
+    {
+      "label": "oope_pct_of_THE",
+      "values": [
+        64.2,
+        48.8,
+        48.2,
+        47.1,
+        44.4,
+        39.4,
+        43.4
+      ]
+    }
+  ],
+  "source": "National Health Accounts Estimates for India 2022-23, NHSRC/MoHFW (2013-14 point from PIB release ID 2265816)",
+  "sourceUrl": "https://nhsrcindia.org/sites/default/files/2026-05/NHA%202022-23%20Report.pdf",
+  "dataPeriod": "2013-14 to 2022-23",
+  "note": ""
+}

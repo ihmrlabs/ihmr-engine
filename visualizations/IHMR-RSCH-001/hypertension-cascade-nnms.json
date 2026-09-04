@@ -1,0 +1,25 @@
+{
+  "title": "National hypertension care cascade among adults 18-69 with hypertension, NNMS 2017-18",
+  "unit": "",
+  "categories": [
+    "Prevalence (of all adults 18-69)",
+    "Aware of diagnosis",
+    "On treatment",
+    "Blood pressure controlled"
+  ],
+  "series": [
+    {
+      "label": "percent_of_hypertensives",
+      "values": [
+        28.5,
+        27.9,
+        14.5,
+        12.6
+      ]
+    }
+  ],
+  "source": "Journal of Human Hypertension: Hypertension treatment cascade in India (NNMS)",
+  "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10156594/",
+  "dataPeriod": "2017-18",
+  "note": ""
+}
