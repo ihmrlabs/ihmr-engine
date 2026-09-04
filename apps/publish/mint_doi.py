@@ -48,6 +48,31 @@ def load(work: pathlib.Path, version: int):
     return manifest, entry
 
 
+def front_matter(md: str) -> dict:
+    if not md.startswith("---"):
+        return {}
+    end = md.index("\n---", 3)
+    out = {}
+    for line in md[4:end].split("\n"):
+        if ":" in line and not line.startswith((" ", "-")):
+            k, _, v = line.partition(":")
+            out[k.strip()] = v.strip()
+    return out
+
+
+def require_signoff(vdir: pathlib.Path, entry: dict) -> str | None:
+    """A DOI is permanent and cannot be deleted.
+
+    Minting one for research that no person has verified would be the exact
+    failure this project exists to avoid: a permanent, citable identifier
+    attached to claims nobody checked. So the gate is here, not in a checklist
+    somebody might skip.
+    """
+    fm = front_matter((vdir / entry["document"]).read_text())
+    signer = fm.get("signed_off_by", "").strip()
+    return signer or None
+
+
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("action", choices=["reserve", "publish"])
@@ -66,6 +91,17 @@ def main() -> int:
     manifest, entry = load(work, args.version)
     vdir = work / f"v{args.version}"
     state_file = vdir / ".zenodo.json"
+
+    signer = require_signoff(vdir, entry)
+    if not signer:
+        print("Refusing to mint: nobody has signed off on this version.", file=sys.stderr)
+        print("", file=sys.stderr)
+        print("A DOI is permanent and cannot be deleted. Attaching one to research that no", file=sys.stderr)
+        print("person has verified would make an unchecked claim permanently citable.", file=sys.stderr)
+        print("", file=sys.stderr)
+        print(f"Set signed_off_by in {vdir / entry['document']} first.", file=sys.stderr)
+        return 1
+    print(f"Signed off by: {signer}")
 
     if args.action == "reserve":
         dep = api("POST", "/deposit/depositions", {

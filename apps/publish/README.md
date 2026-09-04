@@ -22,9 +22,29 @@ eighteen months later by someone who has never seen projectihmr.org.
 So it has to carry its own identifier. If the DOI were issued at publication in the ordinary
 way, every downloaded copy would be missing the one thing needed to cite it.
 
+## What you need first
+
+| | |
+|:--|:--|
+| A Zenodo account | zenodo.org, log in with GitHub or ORCID |
+| A **separate** sandbox account | sandbox.zenodo.org is a different system with its own login and token |
+| An API token per environment | scopes `deposit:write` and `deposit:actions` |
+| An ORCID | Optional but worth two minutes. It turns a creator name into a resolvable identity |
+| `pandoc` and `xelatex` | For the PDF. The workflow installs them |
+| `CORPUS_TOKEN` | So the workflow can open a pull request back against `ihmr` |
+
 ## Use the sandbox first
 
 `sandbox.zenodo.org` until you are certain. **A published DOI cannot be deleted.**
+
+## Nothing is minted without a signature
+
+`mint_doi.py` refuses to reserve or publish unless `signed_off_by` is set in the version's front
+matter.
+
+A DOI is permanent. Attaching one to research nobody has verified would make an unchecked claim
+permanently citable, which is precisely the failure this project exists to avoid. The gate lives
+in the script rather than in a checklist somebody might skip.
 
 ## What the PDF carries
 
