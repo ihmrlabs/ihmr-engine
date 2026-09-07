@@ -14,8 +14,15 @@ licence, AI disclosure and DOI.
 import argparse
 import json
 import pathlib
+import re
+import shutil
 import subprocess
 import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
+from render_charts import render_all  # noqa: E402
+
+CHART_RE = re.compile(r"^\[CHART:\s*([a-z0-9-]+)\s*\|\s*(.+?)\]\s*$", re.M)
 
 TEMPLATE_VARS = [
     "--variable", "documentclass=article",
@@ -65,6 +72,33 @@ def main() -> int:
 
     body = md[md.index("\n---", 3) + 4:] if md.startswith("---") else md
 
+    # The article references its figures rather than containing them, so that a
+    # correction to the data corrects the chart. A PDF has to contain them: it
+    # travels away from the site, and a copy whose figures are missing is not
+    # the same document. Without this the placeholders reached the reader as
+    # literal text, which is what they were doing.
+    viz = vdir / (entry.get("visualisations") or "visualisations")
+    charts = render_all(viz, vdir / "_charts") if viz.is_dir() else {}
+    missing = []
+    figure_no = [0]
+
+    def figure(m):
+        name, caption = m.group(1), m.group(2).strip()
+        path = charts.get(name)
+        if not path:
+            missing.append(name)
+            return f"*[Figure not available: {name}]*"
+        figure_no[0] += 1
+        # Pandoc turns an image alone in its paragraph into a real figure with
+        # a numbered caption. \\newline keeps a long caption off the image.
+        return (f"![**Figure {figure_no[0]}.** {caption}]({path.name})"
+                "{width=100%}\n")
+
+    body = CHART_RE.sub(figure, body)
+    if missing:
+        print(f"No chart data for: {', '.join(sorted(set(missing)))}", file=sys.stderr)
+    print(f"Embedded {figure_no[0]} figures")
+
     header = f"""---
 title: "{manifest['title']}"
 subtitle: "Version {args.version}"
@@ -103,13 +137,14 @@ guidance.
 
     out = vdir / (entry.get("pdf") or f"{work.name}-v{args.version}.pdf")
     cmd = [
-        "pandoc", str(tmp), "-o", str(out),
+        "pandoc", tmp.name, "-o", out.name,
+        "--resource-path", f".:_charts",
         "--pdf-engine=xelatex", "--toc", "--toc-depth=2",
         "--number-sections", "--standalone",
         *TEMPLATE_VARS,
     ]
     try:
-        subprocess.run(cmd, check=True)
+        subprocess.run(cmd, check=True, cwd=vdir)
     except FileNotFoundError:
         print("pandoc is not installed. Install pandoc and a LaTeX engine.", file=sys.stderr)
         return 1
@@ -118,6 +153,7 @@ guidance.
         return 1
     finally:
         tmp.unlink(missing_ok=True)
+        shutil.rmtree(vdir / "_charts", ignore_errors=True)
 
     print(f"Wrote {out}")
     return 0

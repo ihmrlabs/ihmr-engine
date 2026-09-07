@@ -87,7 +87,7 @@ def require_signoff(vdir: pathlib.Path, entry: dict) -> str | None:
 
 def main() -> int:
     p = argparse.ArgumentParser()
-    p.add_argument("action", choices=["reserve", "publish"])
+    p.add_argument("action", choices=["reserve", "publish", "newversion"])
     p.add_argument("--work", required=True)
     p.add_argument("--version", type=int, required=True)
     args = p.parse_args()
@@ -114,6 +114,32 @@ def main() -> int:
         print(f"Set signed_off_by in {vdir / entry['document']} first.", file=sys.stderr)
         return 1
     print(f"Signed off by: {signer}")
+
+    if args.action == "newversion":
+        # Zenodo locks the files of a published record, so a corrected artefact
+        # is a new version rather than an edit. The concept DOI is unchanged and
+        # keeps resolving to the newest version, so an existing citation still
+        # lands on the right thing - it just lands on the corrected copy.
+        existing = entry.get("doi")
+        if not existing:
+            print("This version has no DOI, so there is nothing to supersede.", file=sys.stderr)
+            return 1
+        recid = existing.rsplit(".", 1)[-1]
+        draft = api("POST", f"/deposit/depositions/{recid}/actions/newversion", None, token)
+        new_id = draft["links"]["latest_draft"].rsplit("/", 1)[-1]
+        dep = api("GET", f"/deposit/depositions/{new_id}", None, token)
+
+        # A new version inherits the old files. They have to go, or the record
+        # ends up carrying both the broken artefact and its replacement.
+        for f in dep.get("files", []):
+            api("DELETE", f"/deposit/depositions/{new_id}/files/{f['id']}", None, token)
+
+        doi = dep["metadata"].get("prereserve_doi", {}).get("doi")
+        state_file.write_text(json.dumps(
+            {"id": new_id, "bucket": dep["links"]["bucket"], "doi": doi}, indent=2))
+        print(f"New version reserved {doi}, superseding {existing}")
+        print("Write it into the front matter, rebuild the PDF, then publish.")
+        return 0
 
     if args.action == "reserve":
         dep = api("POST", "/deposit/depositions", {
