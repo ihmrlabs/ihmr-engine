@@ -45,6 +45,10 @@ def upload(bucket_url: str, path: pathlib.Path, token: str):
         req = urllib.request.Request(
             f"{bucket_url}/{path.name}", data=f.read(), method="PUT",
         )
+        # urllib defaults an unset Content-Type on a body-carrying request to
+        # application/x-www-form-urlencoded, and Zenodo's bucket API answers
+        # that with 415. It wants the raw bytes described as raw bytes.
+        req.add_header("Content-Type", "application/octet-stream")
         req.add_header("Authorization", f"Bearer {token}")
         with urllib.request.urlopen(req, timeout=300) as r:
             return json.loads(r.read())
