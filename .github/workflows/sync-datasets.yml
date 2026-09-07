@@ -32,15 +32,26 @@ jobs:
         run: |
           python3 - <<'PY'
           import pathlib, sys
-          missing = []
+          # A folder carrying data must carry its provenance. A folder with no
+          # data file is documentation - india-boundaries states the Survey of
+          # India rule and deliberately holds no geometry yet - and demanding a
+          # SOURCE.md for it would mean inventing provenance for nothing.
+          DATA = ('*.csv', '*.json', '*.geojson', '*.parquet')
+          missing, documented = [], []
           for d in sorted(p for p in pathlib.Path('datasets').iterdir() if p.is_dir()):
-              if not (d / 'SOURCE.md').exists():
+              has_data = any(next(d.glob(g), None) for g in DATA)
+              if not has_data:
+                  documented.append(d.name)
+              elif not (d / 'SOURCE.md').exists():
                   missing.append(d.name)
           if missing:
-              print('Datasets with no SOURCE.md:')
+              print('Datasets with data but no SOURCE.md:')
               for m in missing: print(' ', m)
               sys.exit(1)
-          print('All datasets carry provenance.')
+          if documented:
+              print('Folders with no data, not shipped as datasets:')
+              for m in documented: print(' ', m)
+          print('Every dataset carries provenance.')
           PY
 
       - name: Warn about anything not yet verified by a person
