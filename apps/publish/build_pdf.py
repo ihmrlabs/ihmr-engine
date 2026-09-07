@@ -72,6 +72,11 @@ def main() -> int:
 
     body = md[md.index("\n---", 3) + 4:] if md.startswith("---") else md
 
+    # Drop the body's own h1. The metadata block above already sets the title,
+    # and leaving both made the document a single section with everything
+    # nested inside it.
+    body = re.sub(r"^#\s+.*$", "", body, count=1, flags=re.M)
+
     # The article references its figures rather than containing them, so that a
     # correction to the data corrects the chart. A PDF has to contain them: it
     # travels away from the site, and a copy whose figures are missing is not
@@ -89,10 +94,9 @@ def main() -> int:
             missing.append(name)
             return f"*[Figure not available: {name}]*"
         figure_no[0] += 1
-        # Pandoc turns an image alone in its paragraph into a real figure with
-        # a numbered caption. \\newline keeps a long caption off the image.
-        return (f"![**Figure {figure_no[0]}.** {caption}]({path.name})"
-                "{width=100%}\n")
+        # No "Figure N." prefix here. Pandoc numbers figures itself, and adding
+        # our own produced "Figure 1: Figure 1." on every one of them.
+        return f"![{caption}]({path.name}){{width=100%}}\n"
 
     body = CHART_RE.sub(figure, body)
     if missing:
@@ -140,7 +144,7 @@ guidance.
         "pandoc", tmp.name, "-o", out.name,
         "--resource-path", f".:_charts",
         "--pdf-engine=xelatex", "--toc", "--toc-depth=2",
-        "--number-sections", "--standalone",
+        "--standalone",
         *TEMPLATE_VARS,
     ]
     try:

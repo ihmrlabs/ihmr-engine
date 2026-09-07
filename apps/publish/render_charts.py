@@ -12,6 +12,7 @@ the numbers matter, is the difference between evidence and decoration.
 """
 import json
 import pathlib
+import textwrap
 
 import matplotlib
 matplotlib.use("Agg")
@@ -68,6 +69,16 @@ def _panels(series):
     return groups
 
 
+def _wrap(label: str, width: int) -> str:
+    """Break a label across lines instead of cutting it off.
+
+    Truncating gave axes reading "Population age 60 years and above…" and
+    "Total fertility rate (children pe…", which tells a reader almost nothing.
+    These labels are sentences; they need lines, not an ellipsis.
+    """
+    return textwrap.fill(label, width=width, max_lines=3, placeholder="\u2026")
+
+
 def draw(data: dict, out: pathlib.Path) -> bool:
     cats = [str(c) for c in data.get("categories", [])]
     series = data.get("series", [])
@@ -75,19 +86,29 @@ def draw(data: dict, out: pathlib.Path) -> bool:
         return False
 
     groups = _panels(series)
-
     longest = max((len(c) for c in cats), default=0)
-    rotate = longest > 8 or len(cats) > 8
-    width = min(11.0, max(6.5, len(cats) * 0.62))
-    per_panel = 3.4 if len(groups) > 1 else 4.2
-    height = per_panel * len(groups) + (min(longest, 34) * 0.055 if rotate else 0)
 
-    fig, axes = plt.subplots(len(groups), 1, figsize=(width, height), dpi=200,
-                             sharex=True, squeeze=False)
+    # Long category labels belong down the side, not under the axis. A
+    # horizontal bar gives a sentence-length label the full width of the
+    # margin to sit in, reads left to right like the text around it, and
+    # removes the rotation entirely.
+    horizontal = longest > 18
+
+    if horizontal:
+        width = 9.0
+        per_panel = max(2.4, 0.42 * len(cats) * max(len(g) for g in groups) ** 0.5)
+    else:
+        width = min(11.0, max(6.5, len(cats) * 0.62))
+        per_panel = 3.4 if len(groups) > 1 else 4.2
+
+    fig, axes = plt.subplots(len(groups), 1, dpi=200, squeeze=False,
+                             figsize=(width, per_panel * len(groups)),
+                             sharex=not horizontal)
     axes = [a[0] for a in axes]
 
     colour = {id(s): PALETTE[i % len(PALETTE)] for i, s in enumerate(series)}
     xs = range(len(cats))
+    labels = [_wrap(c, 42 if horizontal else 24) for c in cats]
 
     for ax, group in zip(axes, groups):
         n = len(group)
@@ -95,28 +116,47 @@ def draw(data: dict, out: pathlib.Path) -> bool:
         bar_w = span / n
         for i, s in enumerate(group):
             offset = -span / 2 + bar_w * (i + 0.5)
-            ax.bar([x + offset for x in xs], s["values"], width=bar_w * 0.92,
-                   label=s.get("label", ""), color=colour[id(s)],
-                   edgecolor="none", zorder=3)
+            pos = [x + offset for x in xs]
+            if horizontal:
+                ax.barh(pos, s["values"], height=bar_w * 0.92,
+                        label=s.get("label", ""), color=colour[id(s)],
+                        edgecolor="none", zorder=3)
+            else:
+                ax.bar(pos, s["values"], width=bar_w * 0.92,
+                       label=s.get("label", ""), color=colour[id(s)],
+                       edgecolor="none", zorder=3)
 
-        ax.tick_params(axis="y", labelsize=8, colors=MUTED, length=0)
-        ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: fmt(v)))
-        ax.grid(axis="y", color=GRID, linewidth=0.7, zorder=0)
+        value_axis, cat_axis = (ax.xaxis, ax.yaxis) if horizontal else (ax.yaxis, ax.xaxis)
+        value_axis.set_major_formatter(FuncFormatter(lambda v, _: fmt(v)))
+        ax.grid(axis="x" if horizontal else "y", color=GRID, linewidth=0.7, zorder=0)
         ax.set_axisbelow(True)
-        for side in ("top", "right", "left"):
+        ax.tick_params(labelsize=8, colors=MUTED, length=0)
+        for side in ("top", "right"):
             ax.spines[side].set_visible(False)
-        ax.spines["bottom"].set_color(GRID)
+        ax.spines["left" if horizontal else "bottom"].set_color(GRID)
+        ax.spines["bottom" if horizontal else "left"].set_visible(False)
+
+        if horizontal:
+            ax.set_yticks(list(xs))
+            ax.set_yticklabels(labels, fontsize=8, color=MUTED)
+            ax.invert_yaxis()          # first category at the top, as written
+
         if n > 1 or len(groups) > 1:
             ax.legend(fontsize=7.5, frameon=False, labelcolor=MUTED,
-                      ncol=min(n, 3), loc="upper left", bbox_to_anchor=(0, 1.02))
+                      ncol=min(n, 2 if horizontal else 3),
+                      loc="lower right" if horizontal else "upper left",
+                      bbox_to_anchor=(1.0, 1.01) if horizontal else (0, 1.02))
 
-    last = axes[-1]
-    last.set_xticks(list(xs))
-    last.set_xticklabels([c if len(c) <= 34 else c[:33] + "\u2026" for c in cats],
-                         rotation=38 if rotate else 0,
-                         ha="right" if rotate else "center", fontsize=8, color=MUTED)
+    if not horizontal:
+        last = axes[-1]
+        last.set_xticks(list(xs))
+        last.set_xticklabels(labels, rotation=38 if longest > 8 or len(cats) > 8 else 0,
+                             ha="right" if longest > 8 or len(cats) > 8 else "center",
+                             fontsize=8, color=MUTED)
+
     if data.get("unit") and len(groups) == 1:
-        axes[0].set_ylabel(data["unit"], fontsize=8, color=MUTED)
+        (axes[0].set_xlabel if horizontal else axes[0].set_ylabel)(
+            data["unit"], fontsize=8, color=MUTED)
 
     fig.tight_layout()
     # Format follows the extension, so the same drawing can be checked as a
