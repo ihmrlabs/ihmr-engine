@@ -94,6 +94,9 @@ matters for something meant to become shared infrastructure.
 
 Datasets keep their own licences, recorded per file.
 
+What exactly it covers: [LICENSING.md](LICENSING.md)
+
+
 ## Related work
 
 | Repository | What it is for |
